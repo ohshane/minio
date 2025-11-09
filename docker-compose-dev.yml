@@ -7,8 +7,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx/certs:/etc/nginx/certs/s3.openschema.ai:ro
-      - ./nginx/certs:/etc/nginx/certs/minio.openschema.ai:ro
+      - ./nginx/certs/s3.openschema.ai/fullchain.pem:/etc/nginx/certs/s3.openschema.ai/fullchain.pem:ro
+      - ./nginx/certs/s3.openschema.ai/privkey.pem:/etc/nginx/certs/s3.openschema.ai/privkey.pem:ro
+      - ./nginx/certs/minio.openschema.ai/fullchain.pem:/etc/nginx/certs/minio.openschema.ai/fullchain.pem:ro
+      - ./nginx/certs/minio.openschema.ai/privkey.pem:/etc/nginx/certs/minio.openschema.ai/privkey.pem:ro
     depends_on:
       s3:
         condition: service_healthy

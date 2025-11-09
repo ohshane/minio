@@ -9,8 +9,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /etc/letsencrypt/live/s3.openschema.ai:/etc/nginx/certs/s3.openschema.ai:ro
-      - /etc/letsencrypt/live/minio.openschema.ai:/etc/nginx/certs/minio.openschema.ai:ro
+      - /etc/letsencrypt/live/s3.openschema.ai/fullchain.pem:/etc/nginx/certs/s3.openschema.ai/fullchain.pem:ro
+      - /etc/letsencrypt/live/s3.openschema.ai/privkey.pem:/etc/nginx/certs/s3.openschema.ai/privkey.pem:ro
+      - /etc/letsencrypt/live/minio.openschema.ai/fullchain.pem:/etc/nginx/certs/minio.openschema.ai/fullchain.pem:ro
+      - /etc/letsencrypt/live/minio.openschema.ai/privkey.pem:/etc/nginx/certs/minio.openschema.ai/privkey.pem:ro
     depends_on:
       s3:
         condition: service_healthy
