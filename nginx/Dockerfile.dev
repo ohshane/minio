@@ -1,7 +1,8 @@
 FROM nginx:alpine 
 
 COPY conf.d/ /etc/nginx/conf.d
-COPY certs/ /etc/nginx/certs/
+COPY certs/ /etc/nginx/certs/s3.openschema.ai/
+COPY certs/ /etc/nginx/certs/minio.openschema.ai/
 
 EXPOSE 80
 
